@@ -1,0 +1,8 @@
+# Theme for this dashboard: sky blue on pale cloud white, distinct from the other tools in the series.
+[theme]
+base = "light"
+primaryColor = "#0369A1"
+backgroundColor = "#F3F8FC"
+secondaryBackgroundColor = "#DCEBF5"
+textColor = "#0B2537"
+font = "sans serif"

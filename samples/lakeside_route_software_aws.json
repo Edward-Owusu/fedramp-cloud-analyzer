@@ -1,0 +1,182 @@
+{
+  "_comment": "Synthetic data for demonstration only. Not based on any real organization.",
+  "organization": "Lakeside Route Software (fictional)",
+  "provider": "aws",
+  "description": "Small SaaS company offering freight routing software, preparing to sell to federal agencies.",
+  "account": {
+    "name": "lakeside-prod",
+    "root_mfa": false,
+    "root_access_keys": true,
+    "audit_logging": {
+      "enabled": true,
+      "all_regions": false,
+      "integrity_validation": false,
+      "retention_days": 90
+    },
+    "threat_detection": false
+  },
+  "resources": [
+    {
+      "id": "s3-customer-uploads",
+      "type": "storage_bucket",
+      "name": "customer-uploads",
+      "public_access": true,
+      "encrypted": false,
+      "access_logging": false,
+      "versioning": false,
+      "sensitive_data": true
+    },
+    {
+      "id": "s3-app-assets",
+      "type": "storage_bucket",
+      "name": "app-static-assets",
+      "public_access": true,
+      "encrypted": true,
+      "access_logging": false,
+      "versioning": false,
+      "sensitive_data": false
+    },
+    {
+      "id": "s3-db-exports",
+      "type": "storage_bucket",
+      "name": "nightly-db-exports",
+      "public_access": false,
+      "encrypted": true,
+      "access_logging": true,
+      "versioning": false,
+      "sensitive_data": true
+    },
+    {
+      "id": "sg-web",
+      "type": "security_group",
+      "name": "web-tier",
+      "ingress": [
+        {
+          "cidr": "0.0.0.0/0",
+          "from_port": 443,
+          "to_port": 443
+        },
+        {
+          "cidr": "0.0.0.0/0",
+          "from_port": 80,
+          "to_port": 80
+        }
+      ]
+    },
+    {
+      "id": "sg-admin",
+      "type": "security_group",
+      "name": "legacy-admin",
+      "ingress": [
+        {
+          "cidr": "0.0.0.0/0",
+          "from_port": 22,
+          "to_port": 22
+        },
+        {
+          "cidr": "0.0.0.0/0",
+          "from_port": 3389,
+          "to_port": 3389
+        }
+      ]
+    },
+    {
+      "id": "sg-test",
+      "type": "security_group",
+      "name": "test-anything",
+      "ingress": [
+        {
+          "cidr": "0.0.0.0/0",
+          "from_port": 0,
+          "to_port": 65535
+        }
+      ]
+    },
+    {
+      "id": "alb-public",
+      "type": "load_balancer",
+      "name": "public-alb",
+      "allows_http": true,
+      "min_tls": "1.0"
+    },
+    {
+      "id": "i-web-1",
+      "type": "compute_instance",
+      "name": "web-1",
+      "disk_encrypted": true,
+      "patch_agent": true
+    },
+    {
+      "id": "i-web-2",
+      "type": "compute_instance",
+      "name": "web-2",
+      "disk_encrypted": true,
+      "patch_agent": false
+    },
+    {
+      "id": "i-worker",
+      "type": "compute_instance",
+      "name": "route-optimizer",
+      "disk_encrypted": false,
+      "patch_agent": false
+    },
+    {
+      "id": "rds-main",
+      "type": "database",
+      "name": "routes-db",
+      "publicly_accessible": false,
+      "encrypted": true,
+      "backup_retention_days": 7
+    },
+    {
+      "id": "rds-reporting",
+      "type": "database",
+      "name": "reporting-db",
+      "publicly_accessible": true,
+      "encrypted": false,
+      "backup_retention_days": 0
+    },
+    {
+      "id": "iam-dev1",
+      "type": "iam_user",
+      "name": "dev.alvarez",
+      "console_access": true,
+      "mfa_enabled": true,
+      "access_key_age_days": 30,
+      "admin_policy_direct": true
+    },
+    {
+      "id": "iam-dev2",
+      "type": "iam_user",
+      "name": "dev.kim",
+      "console_access": true,
+      "mfa_enabled": false,
+      "access_key_age_days": 420,
+      "admin_policy_direct": true
+    },
+    {
+      "id": "iam-ops",
+      "type": "iam_user",
+      "name": "ops.brennan",
+      "console_access": true,
+      "mfa_enabled": false,
+      "access_key_age_days": null,
+      "admin_policy_direct": false
+    },
+    {
+      "id": "iam-ci",
+      "type": "iam_user",
+      "name": "ci-deploy-bot",
+      "console_access": false,
+      "access_key_age_days": 700,
+      "admin_policy_direct": true
+    },
+    {
+      "id": "kms-app",
+      "type": "kms_key",
+      "name": "app-data-key",
+      "customer_managed": true,
+      "rotation_enabled": false
+    }
+  ]
+}

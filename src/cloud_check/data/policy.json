@@ -1,0 +1,8 @@
+{
+  "_comment": "Organization-defined parameters. Copy, adjust, and pass with --policy.",
+  "admin_ports": [22, 3389, 5900, 23],
+  "access_key_max_age_days": 90,
+  "db_backup_min_retention_days": 7,
+  "log_retention_min_days": 365,
+  "min_tls": "1.2"
+}

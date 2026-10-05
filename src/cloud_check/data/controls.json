@@ -1,0 +1,26 @@
+{
+  "catalog": "NIST SP 800-53 Revision 5 (cloud subset)",
+  "note": "Baseline membership follows NIST SP 800-53B. FedRAMP baselines are built on NIST SP 800-53 and add FedRAMP-specific parameters and requirements; verify against the official FedRAMP baseline before formal use.",
+  "controls": [
+    {"id": "AC-2",    "title": "Account Management", "baselines": ["low", "moderate", "high"]},
+    {"id": "AC-3",    "title": "Access Enforcement", "baselines": ["low", "moderate", "high"]},
+    {"id": "AC-6",    "title": "Least Privilege", "baselines": ["moderate", "high"]},
+    {"id": "AC-17",   "title": "Remote Access", "baselines": ["low", "moderate", "high"]},
+    {"id": "AU-2",    "title": "Event Logging", "baselines": ["low", "moderate", "high"]},
+    {"id": "AU-9",    "title": "Protection of Audit Information", "baselines": ["low", "moderate", "high"]},
+    {"id": "AU-11",   "title": "Audit Record Retention", "baselines": ["low", "moderate", "high"]},
+    {"id": "AU-12",   "title": "Audit Record Generation", "baselines": ["low", "moderate", "high"]},
+    {"id": "CP-9",    "title": "System Backup", "baselines": ["low", "moderate", "high"]},
+    {"id": "IA-2(1)", "title": "Identification and Authentication | Multi-factor Authentication to Privileged Accounts", "baselines": ["low", "moderate", "high"]},
+    {"id": "IA-2(2)", "title": "Identification and Authentication | Multi-factor Authentication to Non-privileged Accounts", "baselines": ["low", "moderate", "high"]},
+    {"id": "IA-5",    "title": "Authenticator Management", "baselines": ["low", "moderate", "high"]},
+    {"id": "RA-5",    "title": "Vulnerability Monitoring and Scanning", "baselines": ["low", "moderate", "high"]},
+    {"id": "SC-7",    "title": "Boundary Protection", "baselines": ["low", "moderate", "high"]},
+    {"id": "SC-8",    "title": "Transmission Confidentiality and Integrity", "baselines": ["moderate", "high"]},
+    {"id": "SC-12",   "title": "Cryptographic Key Establishment and Management", "baselines": ["low", "moderate", "high"]},
+    {"id": "SC-13",   "title": "Cryptographic Protection", "baselines": ["low", "moderate", "high"]},
+    {"id": "SC-28",   "title": "Protection of Information at Rest", "baselines": ["moderate", "high"]},
+    {"id": "SI-2",    "title": "Flaw Remediation", "baselines": ["low", "moderate", "high"]},
+    {"id": "SI-4",    "title": "System Monitoring", "baselines": ["low", "moderate", "high"]}
+  ]
+}

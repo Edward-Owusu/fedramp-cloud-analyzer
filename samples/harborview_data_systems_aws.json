@@ -1,0 +1,127 @@
+{
+  "_comment": "Synthetic data for demonstration only. Not based on any real organization.",
+  "organization": "Harborview Data Systems (fictional)",
+  "provider": "aws",
+  "description": "Small SaaS company offering cold-chain monitoring software, in FedRAMP readiness review.",
+  "account": {
+    "name": "harborview-prod",
+    "root_mfa": true,
+    "root_access_keys": false,
+    "audit_logging": {
+      "enabled": true,
+      "all_regions": true,
+      "integrity_validation": true,
+      "retention_days": 400
+    },
+    "threat_detection": true
+  },
+  "resources": [
+    {
+      "id": "s3-sensor-data",
+      "type": "storage_bucket",
+      "name": "sensor-telemetry",
+      "public_access": false,
+      "encrypted": true,
+      "access_logging": true,
+      "versioning": true,
+      "sensitive_data": true
+    },
+    {
+      "id": "s3-reports",
+      "type": "storage_bucket",
+      "name": "customer-reports",
+      "public_access": false,
+      "encrypted": true,
+      "access_logging": true,
+      "versioning": true,
+      "sensitive_data": true
+    },
+    {
+      "id": "s3-logs",
+      "type": "storage_bucket",
+      "name": "access-logs",
+      "public_access": false,
+      "encrypted": true,
+      "access_logging": false,
+      "versioning": true,
+      "sensitive_data": false
+    },
+    {
+      "id": "sg-alb",
+      "type": "security_group",
+      "name": "alb-ingress",
+      "ingress": [
+        {
+          "cidr": "0.0.0.0/0",
+          "from_port": 443,
+          "to_port": 443
+        }
+      ]
+    },
+    {
+      "id": "sg-app",
+      "type": "security_group",
+      "name": "app-tier",
+      "ingress": [
+        {
+          "cidr": "10.20.0.0/16",
+          "from_port": 8443,
+          "to_port": 8443
+        }
+      ]
+    },
+    {
+      "id": "alb-public",
+      "type": "load_balancer",
+      "name": "public-alb",
+      "allows_http": false,
+      "min_tls": "1.2"
+    },
+    {
+      "id": "i-app-1",
+      "type": "compute_instance",
+      "name": "app-1",
+      "disk_encrypted": true,
+      "patch_agent": true
+    },
+    {
+      "id": "i-app-2",
+      "type": "compute_instance",
+      "name": "app-2",
+      "disk_encrypted": true,
+      "patch_agent": true
+    },
+    {
+      "id": "rds-main",
+      "type": "database",
+      "name": "telemetry-db",
+      "publicly_accessible": false,
+      "encrypted": true,
+      "backup_retention_days": 35
+    },
+    {
+      "id": "iam-sso-admin",
+      "type": "iam_user",
+      "name": "break-glass-admin",
+      "console_access": true,
+      "mfa_enabled": true,
+      "access_key_age_days": null,
+      "admin_policy_direct": false
+    },
+    {
+      "id": "iam-ci",
+      "type": "iam_user",
+      "name": "ci-deploy",
+      "console_access": false,
+      "access_key_age_days": 120,
+      "admin_policy_direct": false
+    },
+    {
+      "id": "kms-data",
+      "type": "kms_key",
+      "name": "telemetry-key",
+      "customer_managed": true,
+      "rotation_enabled": true
+    }
+  ]
+}

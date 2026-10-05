@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cloud-check"
+version = "0.1.0"
+description = "FedRAMP-aligned readiness pre-check of cloud configurations for small cloud service providers"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Edward Owusu"}]
+keywords = ["fedramp", "cloud security", "nist", "800-53", "aws", "azure", "compliance", "grc"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Security",
+  "Intended Audience :: Information Technology",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dashboard = ["streamlit>=1.37", "pandas>=2.0"]
+
+[project.scripts]
+cloud-check = "cloud_check.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+cloud_check = ["data/*.json"]

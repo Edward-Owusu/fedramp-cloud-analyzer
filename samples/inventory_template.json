@@ -1,0 +1,78 @@
+{
+  "organization": "Your organization",
+  "provider": "aws | azure | gcp",
+  "account": {
+    "name": "production",
+    "root_mfa": true,
+    "root_access_keys": false,
+    "audit_logging": {
+      "enabled": true,
+      "all_regions": true,
+      "integrity_validation": true,
+      "retention_days": 365
+    },
+    "threat_detection": true
+  },
+  "resources": [
+    {
+      "id": "bucket-1",
+      "type": "storage_bucket",
+      "name": "example-bucket",
+      "public_access": false,
+      "encrypted": true,
+      "access_logging": true,
+      "versioning": true,
+      "sensitive_data": true
+    },
+    {
+      "id": "sg-1",
+      "type": "security_group",
+      "name": "web",
+      "ingress": [
+        {
+          "cidr": "0.0.0.0/0",
+          "from_port": 443,
+          "to_port": 443
+        }
+      ]
+    },
+    {
+      "id": "lb-1",
+      "type": "load_balancer",
+      "name": "public",
+      "allows_http": false,
+      "min_tls": "1.2"
+    },
+    {
+      "id": "vm-1",
+      "type": "compute_instance",
+      "name": "app-1",
+      "disk_encrypted": true,
+      "patch_agent": true
+    },
+    {
+      "id": "db-1",
+      "type": "database",
+      "name": "main",
+      "publicly_accessible": false,
+      "encrypted": true,
+      "backup_retention_days": 14
+    },
+    {
+      "id": "user-1",
+      "type": "iam_user",
+      "name": "jdoe",
+      "console_access": true,
+      "mfa_enabled": true,
+      "access_key_age_days": null,
+      "admin_policy_direct": false
+    },
+    {
+      "id": "key-1",
+      "type": "kms_key",
+      "name": "data-key",
+      "customer_managed": true,
+      "rotation_enabled": true
+    }
+  ]
+}

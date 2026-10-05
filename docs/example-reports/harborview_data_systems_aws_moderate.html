@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FedRAMP readiness pre-check: Harborview Data Systems (fictional)</title><style>
+:root{--ink:#0b2537;--muted:#4a6275;--line:#cfe0ec;--paper:#fff;--wash:#f3f8fc;--sky:#0369a1;--sky2:#e0f0fa;
+--crit:#b42318;--gap:#b45309;--ok:#047857;--na:#64748b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--wash);color:var(--ink);
+font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+header{background:linear-gradient(135deg,#0369a1,#0ea5e9);color:#fff}
+header .inner{max-width:1040px;margin:0 auto;padding:36px 24px 30px}
+header h1{margin:0 0 6px;font-size:28px;font-weight:700;letter-spacing:-.01em}
+header p{margin:0;opacity:.9}
+.score{display:flex;gap:28px;flex-wrap:wrap;margin-top:22px;align-items:flex-end}
+.score .big{font-size:52px;font-weight:800;line-height:1}
+.score .big small{font-size:18px;font-weight:600;opacity:.85}
+.score .lbl{font-size:13px;opacity:.9}
+main{max-width:1040px;margin:0 auto;padding:28px 24px 64px}
+h2{font-size:20px;margin:36px 0 14px;color:var(--sky)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px;border-top:5px solid var(--na)}
+.card h3{margin:0 0 8px;font-size:16px}
+.card .pill{display:inline-block;font-size:12px;font-weight:700;padding:2px 10px;border-radius:999px;color:#fff;background:var(--na)}
+.card p{margin:8px 0 0;color:var(--muted);font-size:13px}
+.c-Pass{border-top-color:var(--ok)}.c-Pass .pill{background:var(--ok)}
+.c-Gaps{border-top-color:var(--gap)}.c-Gaps .pill{background:var(--gap)}
+.c-Critical-gaps{border-top-color:var(--crit)}.c-Critical-gaps .pill{background:var(--crit)}
+section.area{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:6px 18px 12px;margin:14px 0}
+section.area h3{color:var(--ink);margin:12px 0 4px}
+.f{border-top:1px solid var(--line);padding:10px 0}
+.f:first-of-type{border-top:0}
+.f p{margin:3px 0}
+.sev{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;padding:1px 7px;border-radius:3px;color:#fff;background:var(--crit);margin-right:6px}
+.sev.high{background:#c2410c}.sev.medium{background:var(--gap)}.sev.low{background:var(--na)}
+.res{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:var(--sky2);padding:1px 6px;border-radius:4px}
+.table-wrap{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:600}
+.s-Pass{color:var(--ok);font-weight:600}.s-Fail{color:var(--crit);font-weight:600}.s-Not-assessed,.s-Not-applicable{color:var(--na)}
+.disclaimer{margin-top:36px;color:var(--muted);font-size:13px}
+@media print{header{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style></head>
+<body><header><div class="inner">
+<h1>FedRAMP readiness pre-check: Harborview Data Systems (fictional)</h1>
+<p>AWS configuration against the NIST SP 800-53 moderate baseline. Generated 2026-10-05 21:32 UTC by cloud_check 0.1.0.</p>
+<div class="score"><div><div class="big">97<small> / 100</small></div><div class="lbl">Readiness: Strong</div></div>
+<div><div class="big">0</div><div class="lbl">Critical findings</div></div>
+<div><div class="big">2</div><div class="lbl">Total findings</div></div>
+<div><div class="big">12</div><div class="lbl">Resources checked</div></div></div>
+</div></header>
+<main>
+<h2>Service areas</h2><div class="cards"><div class="card c-Gaps"><h3>Identity</h3><span class="pill">Gaps</span><p>1 of 5 checks failing, 1 resource affected</p></div><div class="card c-Pass"><h3>Logging and monitoring</h3><span class="pill">Pass</span><p>0 of 4 checks failing</p></div><div class="card c-Pass"><h3>Network</h3><span class="pill">Pass</span><p>0 of 3 checks failing</p></div><div class="card c-Gaps"><h3>Storage</h3><span class="pill">Gaps</span><p>1 of 4 checks failing, 1 resource affected</p></div><div class="card c-Pass"><h3>Databases</h3><span class="pill">Pass</span><p>0 of 3 checks failing</p></div><div class="card c-Pass"><h3>Compute</h3><span class="pill">Pass</span><p>0 of 2 checks failing</p></div><div class="card c-Pass"><h3>Encryption keys</h3><span class="pill">Pass</span><p>0 of 1 checks failing</p></div></div>
+<h2>Findings by service area</h2><section class="area"><h3>Identity</h3><div class="f"><p><span class="sev medium">medium</span><strong>IAM-04</strong> Access keys older than the rotation period: <span class="res">ci-deploy</span></p><p>Access key is 120 days old (limit 90). <span style="color:var(--muted)">Controls: IA-5.</span></p><p><strong>Fix:</strong> Rotate the keys, or replace long-lived keys with short-lived role credentials.</p></div></section><section class="area"><h3>Storage</h3><div class="f"><p><span class="sev medium">medium</span><strong>STG-03</strong> Storage bucket access logging is off: <span class="res">access-logs</span></p><p>Server access logging is off. <span style="color:var(--muted)">Controls: AU-2.</span></p><p><strong>Fix:</strong> Turn on server access logging and send the logs to a separate, restricted bucket.</p></div></section>
+<h2>All checks</h2><div class="table-wrap"><table><thead><tr><th>Check</th><th>Area</th><th>Title</th><th>Controls</th><th>Severity</th><th>Result</th><th>Failing</th></tr></thead><tbody><tr><td>STG-01</td><td>Storage</td><td>Storage bucket is publicly accessible</td><td>AC-3, SC-7</td><td>Critical</td><td class="s-Pass">Pass</td><td>0 of 3</td></tr><tr><td>STG-02</td><td>Storage</td><td>Storage bucket is not encrypted at rest</td><td>SC-28</td><td>High</td><td class="s-Pass">Pass</td><td>0 of 3</td></tr><tr><td>STG-03</td><td>Storage</td><td>Storage bucket access logging is off</td><td>AU-2</td><td>Medium</td><td class="s-Fail">Fail</td><td>1 of 3</td></tr><tr><td>STG-04</td><td>Storage</td><td>Versioning is off on a bucket holding sensitive data</td><td>CP-9</td><td>Medium</td><td class="s-Pass">Pass</td><td>0 of 2</td></tr><tr><td>NET-01</td><td>Network</td><td>Remote administration ports open to the internet</td><td>SC-7, AC-17</td><td>Critical</td><td class="s-Pass">Pass</td><td>0 of 2</td></tr><tr><td>NET-02</td><td>Network</td><td>All ports open to the internet</td><td>SC-7</td><td>High</td><td class="s-Pass">Pass</td><td>0 of 2</td></tr><tr><td>NET-03</td><td>Network</td><td>Load balancer allows plaintext HTTP or TLS below 1.2</td><td>SC-8, SC-13</td><td>High</td><td class="s-Pass">Pass</td><td>0 of 1</td></tr><tr><td>CMP-01</td><td>Compute</td><td>Server disk is not encrypted</td><td>SC-28</td><td>High</td><td class="s-Pass">Pass</td><td>0 of 2</td></tr><tr><td>CMP-02</td><td>Compute</td><td>Server is not covered by patching and vulnerability scanning</td><td>SI-2, RA-5</td><td>Medium</td><td class="s-Pass">Pass</td><td>0 of 2</td></tr><tr><td>DB-01</td><td>Databases</td><td>Database is publicly accessible</td><td>SC-7, AC-3</td><td>Critical</td><td class="s-Pass">Pass</td><td>0 of 1</td></tr><tr><td>DB-02</td><td>Databases</td><td>Database is not encrypted at rest</td><td>SC-28</td><td>High</td><td class="s-Pass">Pass</td><td>0 of 1</td></tr><tr><td>DB-03</td><td>Databases</td><td>Database backups are off or kept too briefly</td><td>CP-9</td><td>Medium</td><td class="s-Pass">Pass</td><td>0 of 1</td></tr><tr><td>IAM-01</td><td>Identity</td><td>Root or global administrator account without MFA</td><td>IA-2(1)</td><td>Critical</td><td class="s-Pass">Pass</td><td>0 of 1</td></tr><tr><td>IAM-02</td><td>Identity</td><td>Root account has access keys</td><td>AC-6</td><td>High</td><td class="s-Pass">Pass</td><td>0 of 1</td></tr><tr><td>IAM-03</td><td>Identity</td><td>Console user without MFA</td><td>IA-2(1), IA-2(2)</td><td>High</td><td class="s-Pass">Pass</td><td>0 of 1</td></tr><tr><td>IAM-04</td><td>Identity</td><td>Access keys older than the rotation period</td><td>IA-5</td><td>Medium</td><td class="s-Fail">Fail</td><td>1 of 1</td></tr><tr><td>IAM-05</td><td>Identity</td><td>Administrator permissions attached directly to a user</td><td>AC-6, AC-2</td><td>Medium</td><td class="s-Pass">Pass</td><td>0 of 2</td></tr><tr><td>LOG-01</td><td>Logging and monitoring</td><td>Audit logging is not on in every region</td><td>AU-2, AU-12</td><td>Critical</td><td class="s-Pass">Pass</td><td>0 of 1</td></tr><tr><td>LOG-02</td><td>Logging and monitoring</td><td>Audit log integrity validation is off</td><td>AU-9</td><td>Medium</td><td class="s-Pass">Pass</td><td>0 of 1</td></tr><tr><td>LOG-03</td><td>Logging and monitoring</td><td>Audit logs are kept for less than the required period</td><td>AU-11</td><td>Medium</td><td class="s-Pass">Pass</td><td>0 of 1</td></tr><tr><td>LOG-04</td><td>Logging and monitoring</td><td>Cloud threat detection service is off</td><td>SI-4</td><td>High</td><td class="s-Pass">Pass</td><td>0 of 1</td></tr><tr><td>KEY-01</td><td>Encryption keys</td><td>Customer-managed key rotation is off</td><td>SC-12</td><td>Medium</td><td class="s-Pass">Pass</td><td>0 of 1</td></tr></tbody></table></div>
+<p class="disclaimer">Inventory: 3 storage buckets, 2 security groups, 1 load balancer, 2 servers, 1 database, 2 users, 1 key. This is an automated readiness pre-check of the configuration data supplied. It is not a FedRAMP assessment or authorization, does not replace a Third Party Assessment Organization (3PAO), and covers only the configuration checks listed. Baseline membership follows NIST SP 800-53B; verify against the official FedRAMP baseline.</p>
+</main></body></html>

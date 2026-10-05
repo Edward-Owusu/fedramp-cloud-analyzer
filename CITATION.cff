@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "cloud_check: FedRAMP-Aligned Cloud Configuration Readiness Pre-Check for Small Cloud Service Providers"
+authors:
+  - family-names: Owusu
+    given-names: Edward
+version: 0.1.0
+date-released: 2026-10-06
+license: MIT
+repository-code: "https://github.com/Edward-Owusu/fedramp-cloud-analyzer"
+keywords:
+  - FedRAMP
+  - cloud security
+  - NIST SP 800-53
+  - cloud service providers
+  - small business
+  - compliance automation
