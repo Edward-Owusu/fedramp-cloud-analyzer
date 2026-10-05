@@ -2,6 +2,8 @@
 
 [![tests](https://github.com/Edward-Owusu/fedramp-cloud-analyzer/actions/workflows/tests.yml/badge.svg)](https://github.com/Edward-Owusu/fedramp-cloud-analyzer/actions/workflows/tests.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23172865.svg)](https://doi.org/10.5281/zenodo.23172865)
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://fedramp-cloud-analyzer.streamlit.app)
 
 An open-source **readiness pre-check** that reviews a cloud environment's configuration against FedRAMP-aligned **NIST SP 800-53 Rev. 5** controls. It groups results into service areas (identity, logging, network, storage, databases, compute, and encryption keys), names every misconfigured resource, and explains each fix in plain language.
 
@@ -64,6 +66,7 @@ pip install -r requirements.txt
 streamlit run app/streamlit_app.py
 ```
 
+Try the hosted version at https://fedramp-cloud-analyzer.streamlit.app, or run it locally:
 ### Use in automation
 
 `--fail-on <severity>` exits with code 2 when a finding at or above that severity exists, so the check can run in a deployment pipeline:
